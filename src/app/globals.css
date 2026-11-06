@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #12100e;
+  color: #3a3938;
+  overscroll-behavior-y: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Authentic film developing chemical animation */
+@keyframes filmDevelop {
+  0% {
+    filter: brightness(0.12) contrast(1.8) saturate(0.2) hue-rotate(210deg) blur(2.5px);
+    opacity: 0.88;
+  }
+  25% {
+    filter: brightness(0.35) contrast(1.5) saturate(0.4) hue-rotate(140deg) blur(1.5px);
+    opacity: 0.93;
+  }
+  60% {
+    filter: brightness(0.7) contrast(1.2) saturate(0.8) hue-rotate(40deg) blur(0.5px);
+    opacity: 0.97;
+  }
+  100% {
+    filter: brightness(1) contrast(1) saturate(1) hue-rotate(0deg) blur(0px);
+    opacity: 1;
+  }
+}
+
+.animate-develop {
+  animation: filmDevelop 3.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Strobe flash */
+@keyframes cameraStrobe {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  35% { opacity: 0.95; }
+  100% { opacity: 0; }
+}
+
+.animate-strobe {
+  animation: cameraStrobe 0.45s ease-out forwards;
+}
+
+/* Mechanical camera recoil shake on shutter press */
+@keyframes cameraShake {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(3px) scale(0.998); }
+  50% { transform: translateY(-2px); }
+  75% { transform: translateY(1px); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.animate-shake {
+  animation: cameraShake 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Photo emerges directly from the recessed horizontal film slot */
+@keyframes emergeFromSlot {
+  0% {
+    transform: translateY(-85%) scale(0.85);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-30%) scale(0.92);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-emerge-slot {
+  animation: emergeFromSlot 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Retro digital 7-segment LED glow */
+.led-display {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
+}
+
+/* Tactile button pressed effect */
+.btn-tactile {
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease;
+}
+.btn-tactile:active {
+  transform: translateY(2px) scale(0.97);
+}
+
+/* Skeuomorphic hardware depth styles */
+.camera-plastic-body {
+  background: radial-gradient(circle at 50% 0%, #FAF7F0 0%, #F3EEE5 45%, #EBE4D8 100%);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 255, 255, 0.9),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.18),
+    inset 2px 0 3px rgba(255, 255, 255, 0.5),
+    inset -2px 0 3px rgba(0, 0, 0, 0.12);
+}
+
+.camera-bevel-top {
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8),
+    0 -1px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Recessed film slot cavity */
+.film-slot-cavity {
+  background: linear-gradient(180deg, #181615 0%, #0d0c0b 60%, #1f1d1b 100%);
+  box-shadow:
+    inset 0 3px 6px rgba(0, 0, 0, 0.9),
+    inset 0 -1px 2px rgba(255, 255, 255, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    0 -1px 1px rgba(255, 255, 255, 0.8);
+}
+
+/* Red 3D glossy physical shutter button */
+.shutter-button-3d {
+  background: radial-gradient(circle at 35% 30%, #ff6b64 0%, #e83b32 50%, #b71c1c 95%);
+  box-shadow:
+    0 7px 0 #891515,
+    0 12px 18px rgba(0, 0, 0, 0.45),
+    inset 0 2px 4px rgba(255, 255, 255, 0.7),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.5);
+}
+.shutter-button-3d:active {
+  transform: translateY(4px);
+  box-shadow:
+    0 3px 0 #891515,
+    0 6px 10px rgba(0, 0, 0, 0.35),
+    inset 0 1px 3px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Knurled metal slider styling */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #d4cec4 60%, #9e968a 100%);
+  border: 2px solid #5a5247;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff 0%, #d4cec4 60%, #9e968a 100%);
+  border: 2px solid #5a5247;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+/* Custom scrollbar hidden */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

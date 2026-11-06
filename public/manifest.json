@@ -1,0 +1,18 @@
+{
+  "name": "RetroSnap 80 Instant Camera",
+  "short_name": "RetroSnap",
+  "description": "Tactile retro instant film camera web app with vintage presets and Polaroid prints",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#171513",
+  "theme_color": "#f7f3eb",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
